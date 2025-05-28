@@ -1,0 +1,93 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> rule
+Rule 1     rule -> TURN action DEVICE IF CONDITION
+Rule 2     action -> ON
+Rule 3     action -> OFF
+
+Terminals, with rules where they appear
+
+CONDITION            : 1
+DEVICE               : 1
+IF                   : 1
+OFF                  : 3
+ON                   : 2
+TURN                 : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+action               : 1
+rule                 : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . rule
+    (1) rule -> . TURN action DEVICE IF CONDITION
+
+    TURN            shift and go to state 2
+
+    rule                           shift and go to state 1
+
+state 1
+
+    (0) S' -> rule .
+
+
+
+state 2
+
+    (1) rule -> TURN . action DEVICE IF CONDITION
+    (2) action -> . ON
+    (3) action -> . OFF
+
+    ON              shift and go to state 4
+    OFF             shift and go to state 5
+
+    action                         shift and go to state 3
+
+state 3
+
+    (1) rule -> TURN action . DEVICE IF CONDITION
+
+    DEVICE          shift and go to state 6
+
+
+state 4
+
+    (2) action -> ON .
+
+    DEVICE          reduce using rule 2 (action -> ON .)
+
+
+state 5
+
+    (3) action -> OFF .
+
+    DEVICE          reduce using rule 3 (action -> OFF .)
+
+
+state 6
+
+    (1) rule -> TURN action DEVICE . IF CONDITION
+
+    IF              shift and go to state 7
+
+
+state 7
+
+    (1) rule -> TURN action DEVICE IF . CONDITION
+
+    CONDITION       shift and go to state 8
+
+
+state 8
+
+    (1) rule -> TURN action DEVICE IF CONDITION .
+
+    $end            reduce using rule 1 (rule -> TURN action DEVICE IF CONDITION .)
+
