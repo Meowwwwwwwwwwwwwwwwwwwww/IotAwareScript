@@ -10,7 +10,7 @@ t_TURN = r'TURN'
 t_ON = r'ON'
 t_OFF = r'OFF'
 t_IF = r'IF'
-t_DEVICE = r'(light|fan|heater|ac|tv)'
+t_DEVICE = r'(light|fan|heater|ac|tv|refrigirator|Geaser)'
 t_CONDITION = r'(motion_detected|temperature_low|temperature_high|no_motion)'
 
 t_ignore = ' \t\n'
