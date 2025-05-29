@@ -1,3 +1,3 @@
 # IotAwareScript
 
-iot assure script compiler is a
+iot assure script compiler is a nice project
